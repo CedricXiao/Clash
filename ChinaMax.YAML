@@ -20,4 +20,5 @@ rules:
 - IP-CIDR,192.0.2.0/24,DIRECT
 - DOMAIN,winshare.com,DIRECT
 - DOMAIN-SUFFIX,winshare.com,DIRECT
+- DOMAIN-SUFFIX,mytorch.cn,DIRECT
 - MATCH,SSRDOG
