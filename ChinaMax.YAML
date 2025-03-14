@@ -1,6 +1,6 @@
 rule-providers:
 
-   ChinaMax:
+  ChinaMax:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_Classical_No_IPv6.yaml
@@ -29,12 +29,11 @@ rule-providers:
     interval: 86400
 
 rules:
-  - RULE-SET,direct,DIRECT
-  - RULE-SET,gfw,PROXY
-  - RULE-SET,telegramcidr,PROXY
-  - GEOIP,CN,DIRECT
   - RULE-SET,ChinaMax,DIRECT
   - RULE-SET,applications,DIRECT
+  - GEOIP,CN,DIRECT
+  - RULE-SET,gfw,PROXY
+  - RULE-SET,telegramcidr,PROXY
   - GEOIP,LAN,DIRECT
   - IP-CIDR,100.64.0.0/10,DIRECT
   - IP-CIDR,17.0.0.0/8,DIRECT
