@@ -6,7 +6,50 @@ rule-providers:
     interval: 86400
     path: ./ruleset/ChinaMax.yml
 
+  gfw:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
+    path: ./ruleset/gfw.yaml
+    interval: 86400
+
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+    path: ./ruleset/telegramcidr.yaml
+    interval: 86400
+
+
+  applications:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
+    path: ./ruleset/applications.yaml
+    interval: 86400
+
 rules:
+
+  - RULE-SET,applications,DIRECT
+
+  - RULE-SET,direct,DIRECT
+  - RULE-SET,gfw,PROXY
+  - RULE-SET,proxy,PROXY
+  - RULE-SET,telegramcidr,PROXY
+  - GEOIP,LAN,DIRECT
+  - GEOIP,CN,DIRECT
+  - RULE-SET,ChinaMax,DIRECT
+  - IP-CIDR,100.64.0.0/10,DIRECT
+  - IP-CIDR,17.0.0.0/8,DIRECT
+  - IP-CIDR,224.0.0.0/4,DIRECT
+  - IP-CIDR,203.0.113.0/24,DIRECT
+  - IP-CIDR,192.0.2.0/24,DIRECT
+  - DOMAIN-SUFFIX,winshare.com,DIRECT
+  - DOMAIN-SUFFIX,mytorch.cn,DIRECT
+  - DOMAIN,clash.razord.top,DIRECT
+  - DOMAIN,yacd.haishan.me,DIRECT
+  - MATCH,PROXY
+
 
 - GEOIP,CN,DIRECT
 - RULE-SET,ChinaMax,DIRECT
