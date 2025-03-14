@@ -1,1 +1,2 @@
 # Clash
+SELF USE ONLY
