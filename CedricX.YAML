@@ -53,7 +53,6 @@ rule-providers:
   秋风广告规则:
     type: http
     behavior: domain
-    format: yaml
     path: ./rule_providers/AWAvenue-Ads-Rule-Clash.yaml
     url: https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main//Filters/AWAvenue-Ads-Rule-Clash.yaml
     interval: 86400
@@ -69,4 +68,4 @@ rules:
 - DOMAIN-SUFFIX,winshare.com,DIRECT
 - DOMAIN-SUFFIX,mytorch.cn,DIRECT
 - GEOIP,CN,DIRECT
-- FINAL,PROXY
+- MATCH,PROXY
