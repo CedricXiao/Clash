@@ -29,16 +29,13 @@ rule-providers:
     interval: 86400
 
 rules:
-
-  - RULE-SET,applications,DIRECT
-
   - RULE-SET,direct,DIRECT
   - RULE-SET,gfw,PROXY
-  - RULE-SET,proxy,PROXY
   - RULE-SET,telegramcidr,PROXY
-  - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT
   - RULE-SET,ChinaMax,DIRECT
+  - RULE-SET,applications,DIRECT
+  - GEOIP,LAN,DIRECT
   - IP-CIDR,100.64.0.0/10,DIRECT
   - IP-CIDR,17.0.0.0/8,DIRECT
   - IP-CIDR,224.0.0.0/4,DIRECT
@@ -49,18 +46,3 @@ rules:
   - DOMAIN,clash.razord.top,DIRECT
   - DOMAIN,yacd.haishan.me,DIRECT
   - MATCH,PROXY
-
-
-- GEOIP,CN,DIRECT
-- RULE-SET,ChinaMax,DIRECT
-- GEOIP,LAN,DIRECT
-- DOMAIN,local.adguard.org,DIRECT
-- DOMAIN-SUFFIX,local,DIRECT
-- IP-CIDR,100.64.0.0/10,DIRECT
-- IP-CIDR,17.0.0.0/8,DIRECT
-- IP-CIDR,224.0.0.0/4,DIRECT
-- IP-CIDR,203.0.113.0/24,DIRECT
-- IP-CIDR,192.0.2.0/24,DIRECT
-- DOMAIN-SUFFIX,winshare.com,DIRECT
-- DOMAIN-SUFFIX,mytorch.cn,DIRECT
-- MATCH,SSRDOG
