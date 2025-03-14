@@ -1,4 +1,5 @@
 rule-providers:
+
    ChinaMax:
     type: http
     behavior: classical
@@ -19,7 +20,6 @@ rule-providers:
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
     path: ./ruleset/telegramcidr.yaml
     interval: 86400
-
 
   applications:
     type: http
