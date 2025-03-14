@@ -31,24 +31,44 @@ dns:
     geoip: true
 
 
-
-
 rule-providers:
-
+  ChinaMax:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_Classical_No_IPv6.yaml
+    interval: 86400
+    path: ./ruleset/ChinaMax.yml
+  gfw:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt
+    path: ./ruleset/gfw.yaml
+    interval: 86400
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt
+    path: ./ruleset/telegramcidr.yaml
+    interval: 86400
   秋风广告规则:
     type: http
     behavior: domain
+    format: yaml
     path: ./rule_providers/AWAvenue-Ads-Rule-Clash.yaml
     url: https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main//Filters/AWAvenue-Ads-Rule-Clash.yaml
     interval: 86400
-
 rules:
 - RULE-SET,秋风广告规则,REJECT
 - GEOIP,CN,DIRECT
+- RULE-SET,telegramcidr,PROXY
+- RULE-SET,gfw,PROXY
+- RULE-SET,ChinaMax,DIRECT
 - GEOIP,LAN,DIRECT
 - IP-CIDR,100.64.0.0/10,DIRECT
 - IP-CIDR,17.0.0.0/8,DIRECT
 - IP-CIDR,224.0.0.0/4,DIRECT
 - DOMAIN-SUFFIX,winshare.com,DIRECT
 - DOMAIN-SUFFIX,mytorch.cn,DIRECT
-- FINAL,PROXY
+- DOMAIN,clash.razord.top,DIRECT
+- DOMAIN,yacd.haishan.me,DIRECT
+- MATCH,PROXY
