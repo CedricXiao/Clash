@@ -1,49 +1,71 @@
+mixed-port: 7890
+allow-lan: true
+bind-address: 0.0.0.0
+mode: rule
+log-level: warning
+ipv6: false
+
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:1053
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: false
+  fake-ip-filter:
+    - "*.taobao.com"
+    - "*.jd.com"
+    - "*.bilibili.com"
+    - "*.alipay.com"
+    - "*.baidu.com"
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  fallback:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback-filter:
+    geoip: true
+
+
+
+
 rule-providers:
-
-  ChinaMax:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_Classical_No_IPv6.yaml
-    interval: 86400
-    path: ./ruleset/ChinaMax.yml
-
   gfw:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt
     path: ./ruleset/gfw.yaml
     interval: 86400
-
   telegramcidr:
     type: http
     behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt
     path: ./ruleset/telegramcidr.yaml
     interval: 86400
-
   秋风广告规则:
     type: http
     behavior: domain
-    format: yaml
     path: ./rule_providers/AWAvenue-Ads-Rule-Clash.yaml
-    url: "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main//Filters/AWAvenue-Ads-Rule-Clash.yaml"
+    url: https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main//Filters/AWAvenue-Ads-Rule-Clash.yaml
     interval: 86400
 
 rules:
-
-  - RULE-SET,秋风广告规则,REJECT
-  - GEOIP,CN,DIRECT
-  - RULE-SET,telegramcidr,PROXY
-  - RULE-SET,gfw,PROXY
-  - RULE-SET,ChinaMax,DIRECT
-  - GEOIP,LAN,DIRECT
-  - IP-CIDR,100.64.0.0/10,DIRECT
-  - IP-CIDR,17.0.0.0/8,DIRECT
-  - IP-CIDR,224.0.0.0/4,DIRECT
-  - IP-CIDR,203.0.113.0/24,DIRECT
-  - IP-CIDR,192.0.2.0/24,DIRECT
-  - DOMAIN-SUFFIX,winshare.com,DIRECT
-  - DOMAIN-SUFFIX,mytorch.cn,DIRECT
-  - DOMAIN,clash.razord.top,DIRECT
-  - DOMAIN,yacd.haishan.me,DIRECT
-  - MATCH,PROXY
+- RULE-SET,秋风广告规则,REJECT
+- GEOIP,CN,DIRECT
+- RULE-SET,telegramcidr,PROXY
+- RULE-SET,gfw,PROXY
+- GEOIP,LAN,DIRECT
+- IP-CIDR,100.64.0.0/10,DIRECT
+- IP-CIDR,17.0.0.0/8,DIRECT
+- IP-CIDR,224.0.0.0/4,DIRECT
+- IP-CIDR,203.0.113.0/24,DIRECT
+- IP-CIDR,192.0.2.0/24,DIRECT
+- DOMAIN-SUFFIX,winshare.com,DIRECT
+- DOMAIN-SUFFIX,mytorch.cn,DIRECT
+- DOMAIN,clash.razord.top,DIRECT
+- DOMAIN,yacd.haishan.me,DIRECT
+- FINAL,PROXY
