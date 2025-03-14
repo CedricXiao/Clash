@@ -21,13 +21,6 @@ rule-providers:
     path: ./ruleset/telegramcidr.yaml
     interval: 86400
 
-  applications:
-    type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
-    path: ./ruleset/applications.yaml
-    interval: 86400
-
   秋风广告规则:
     type: http
     behavior: domain
@@ -43,7 +36,6 @@ rules:
   - RULE-SET,telegramcidr,PROXY
   - RULE-SET,gfw,PROXY
   - RULE-SET,ChinaMax,DIRECT
-  - RULE-SET,applications,DIRECT
   - GEOIP,LAN,DIRECT
   - IP-CIDR,100.64.0.0/10,DIRECT
   - IP-CIDR,17.0.0.0/8,DIRECT
