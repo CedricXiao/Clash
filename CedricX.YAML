@@ -27,7 +27,7 @@ dns:
 
 rule-providers:
     秋风广告规则: { type: http, behavior: domain, url: 'https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main//Filters/AWAvenue-Ads-Rule-Clash.yaml', interval: 86400, path: ./rule_providers/AWAvenue-Ads-Rule-Clash.yaml }
-    ChinaMax: { type: http, behavior: classical, url: 'https://api-gz.hosbbq.com/nus74f89st1/C.yml', interval: 86400, path: ./ruleset/ChinaMax.yml }
+    ChinaMax: { type: http, behavior: classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_Classical_No_IPv6.yaml', interval: 86400, path: ./ChinaMax_Classical_No_IPv6.yaml }
 rules:
     - 'RULE-SET,秋风广告规则,REJECT'
     - 'RULE-SET,ChinaMax,DIRECT'
