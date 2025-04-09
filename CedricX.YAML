@@ -14,14 +14,14 @@ dns:
   use-hosts: true
   cache: true
   nameserver:
-    - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
-  default-nameserver:
-    - 119.29.29.29
-    - 8.8.8.8
-  fallback:
-    - 8.8.8.8
-    - 8.8.4.4
+  - https://dns.alidns.com/dns-query
+  - https://doh.pub/dns-query
+default-nameserver:
+  - 119.29.29.29
+  - 223.5.5.5 
+fallback:
+  - https://1.1.1.1/dns-query
+  - https://dns.google/dns-query
   fallback-filter:
     geoip: true
     geoip-code: CN
