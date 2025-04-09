@@ -6,6 +6,9 @@ log-level: error
 unified-delay: true
 external-controller: 127.0.0.1:9090
 
+hosts:
+    dnslog.cn: 47.244.138.18
+
 dns:
   enable: true
   ipv6: false
