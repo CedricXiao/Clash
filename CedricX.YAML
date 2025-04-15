@@ -1,48 +1,27 @@
 mixed-port: 7890
 allow-lan: true
-bind-address: '*'
 mode: rule
-log-level: error
-unified-delay: true
-external-controller: 127.0.0.1:9090
+log-level: info
 
 hosts:
   dnslog.cn: 47.244.138.18
 
 dns:
   enable: true
+  listen: 0.0.0.0:53
   ipv6: false
-  listen: 0.0.0.0:1053
-  enhanced-mode: fake-ip      # ← 改这里，切换到 fake-ip 模式
+  enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
-  fake-ip-filter:             # ← 防止代理本地/局域网/常用域名
-    - '*.lan'
-    - '*.local'
-    - 'localhost'
-    - 'time.*.com'
-    - 'time.*.gov'
-    - 'ntp.*.com'
-    - 'ntp.*.gov'
-    - 'pool.ntp.org'
-    - '*.ntp.org'
-    - 'connect.rom.miui.com'
-    - 'router.asus.com'
-    - '*.xunlei.com'
-    - '*.sandai.net'
   use-hosts: true
-  cache: true
   nameserver:
-    - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
-  default-nameserver:
-    - 119.29.29.29
     - 223.5.5.5
+    - 8.8.8.8
+    - 1.1.1.1
   fallback:
-    - https://1.1.1.1/dns-query
-    - https://dns.google/dns-query
+    - tls://1.0.0.1
+    - tls://dns.google
   fallback-filter:
     geoip: true
-    geoip-code: CN
     ipcidr:
       - 240.0.0.0/4
 
@@ -64,7 +43,6 @@ rules:
     - 'IP-CIDR,224.0.0.0/4,DIRECT'
     - 'IP-CIDR,203.0.113.0/24,DIRECT'
     - 'IP-CIDR,192.0.2.0/24,DIRECT'
-    - 'IP-CIDR6,fe80::/10,DIRECT'
     - 'GEOIP,CN,DIRECT'
     - 'GEOIP,LAN,DIRECT'
     - 'MATCH,PROXY'
