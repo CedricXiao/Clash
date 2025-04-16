@@ -1,27 +1,32 @@
 mixed-port: 7890
 allow-lan: true
+bind-address: '*'
 mode: rule
-log-level: info
+log-level: error
+unified-delay: true
+external-controller: 127.0.0.1:9090
 
 hosts:
-  dnslog.cn: 47.244.138.18
+    dnslog.cn: 47.244.138.18
 
 dns:
   enable: true
-  listen: 0.0.0.0:53
   ipv6: false
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
+  listen: 0.0.0.0:1053
+  enhanced-mode: redir-host
   use-hosts: true
+  cache: true
   nameserver:
-    - 223.5.5.5
-    - 8.8.8.8
-    - 1.1.1.1
-  fallback:
-    - tls://1.0.0.1
-    - tls://dns.google
-  fallback-filter:
+  - 218.6.200.139
+  - 61.139.2.69
+default-nameserver:
+  - 218.6.200.139
+fallback:
+  - 8.8.8.8
+  - 119.29.29.29
+fallback-filter:
     geoip: true
+    geoip-code: CN
     ipcidr:
       - 240.0.0.0/4
 
@@ -33,7 +38,6 @@ rules:
     - 'RULE-SET,ChinaMax,DIRECT'
     - 'DOMAIN,local.adguard.org,DIRECT'
     - 'DOMAIN-SUFFIX,local,DIRECT'
-    - 'DOMAIN-SUFFIX,mytorch.cn,DIRECT'
     - 'IP-CIDR,127.0.0.0/8,DIRECT'
     - 'IP-CIDR,172.16.0.0/12,DIRECT'
     - 'IP-CIDR,192.168.0.0/16,DIRECT'
@@ -43,7 +47,9 @@ rules:
     - 'IP-CIDR,224.0.0.0/4,DIRECT'
     - 'IP-CIDR,203.0.113.0/24,DIRECT'
     - 'IP-CIDR,192.0.2.0/24,DIRECT'
+    - 'IP-CIDR6,fe80::/10,DIRECT'
     - 'GEOIP,CN,DIRECT'
     - 'GEOIP,LAN,DIRECT'
     - 'MATCH,PROXY'
+
 
