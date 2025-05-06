@@ -134,6 +134,6 @@ rules:
     - 'IP-CIDR6,fe80::/10,DIRECT'
     - 'GEOIP,CN,DIRECT'
     - 'GEOIP,LAN,DIRECT'
-    - 'MATCH,PROXY'
+    - 'MATCH,proxies'
 
 
