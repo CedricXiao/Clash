@@ -3,7 +3,6 @@ mode: rule
 log-level: info
 external-controller: :9090
 tcp-fast-open: true
-
 sniffer:
   enable: true
   parse-pure-ip: true
@@ -11,129 +10,227 @@ sniffer:
   override-destination: true
   sniff:
     TLS:
-      ports: [1-65535]
+      ports:
+      - 1-65535
       override-destination: true
     HTTP:
-      ports: [1-65535]
+      ports:
+      - 1-65535
       override-destination: true
   skip-domain:
-    - Mijia Cloud
-    - dlg.io.mi.com
-
+  - Mijia Cloud
+  - dlg.io.mi.com
 dns:
   enable: true
   ipv6: false
   listen: 0.0.0.0:1053
   use-hosts: false
   nameserver:
-    - 218.6.200.139
-    - 61.139.2.69
+  - 218.6.200.139
+  - 61.139.2.69
   default-nameserver:
-    - 218.6.200.139
+  - 218.6.200.139
   fallback:
-    - 8.8.8.8
-    - 119.29.29.29
+  - 8.8.8.8
+  - 119.29.29.29
   fake-ip-range: 198.18.0.1/15
   fake-ip-filter:
-    - "*.lan"
-    - "*.localdomain"
-    - "*.example"
-    - "*.invalid"
-    - "*.localhost"
-    - "*.test"
-    - "*.local"
-    - "*.home.arpa"
-    - time.*.com
-    - time.*.gov
-    - time.*.edu.cn
-    - time.*.apple.com
-    - time1.*.com
-    - time2.*.com
-    - time3.*.com
-    - time4.*.com
-    - time5.*.com
-    - time6.*.com
-    - time7.*.com
-    - ntp.*.com
-    - ntp1.*.com
-    - ntp2.*.com
-    - ntp3.*.com
-    - ntp4.*.com
-    - ntp5.*.com
-    - ntp6.*.com
-    - ntp7.*.com
-    - "*.time.edu.cn"
-    - "*.ntp.org.cn"
-    - +.pool.ntp.org
-    - time1.cloud.tencent.com
-    - stun.*.*
-    - stun.*.*.*
-    - swscan.apple.com
-    - mesu.apple.com
-    - music.163.com
-    - "*.music.163.com"
-    - "*.126.net"
-    - musicapi.taihe.com
-    - music.taihe.com
-    - songsearch.kugou.com
-    - trackercdn.kugou.com
-    - "*.kuwo.cn"
-    - api-jooxtt.sanook.com
-    - api.joox.com
-    - y.qq.com
-    - "*.y.qq.com"
-    - streamoc.music.tc.qq.com
-    - mobileoc.music.tc.qq.com
-    - isure.stream.qqmusic.qq.com
-    - dl.stream.qqmusic.qq.com
-    - aqqmusic.tc.qq.com
-    - amobile.music.tc.qq.com
-    - localhost.ptlogin2.qq.com
-    - "*.msftconnecttest.com"
-    - "*.msftncsi.com"
-    - "*.xiami.com"
-    - "*.music.migu.cn"
-    - music.migu.cn
-    - +.wotgame.cn
-    - +.wggames.cn
-    - +.wowsgame.cn
-    - +.wargaming.net
-    - "*.*.*.srv.nintendo.net"
-    - "*.*.stun.playstation.net"
-    - xbox.*.*.microsoft.com
-    - "*.*.xboxlive.com"
-    - "*.ipv6.microsoft.com"
-    - teredo.*.*.*
-    - teredo.*.*
-    - speedtest.cros.wr.pvp.net
-    - +.jjvip8.com
-    - www.douyu.com
-    - activityapi.huya.com
-    - activityapi.huya.com.w.cdngslb.com
-    - www.bilibili.com
-    - api.bilibili.com
-    - a.w.bilicdn1.com
+  - '*.lan'
+  - '*.localdomain'
+  - '*.example'
+  - '*.invalid'
+  - '*.localhost'
+  - '*.test'
+  - '*.local'
+  - '*.home.arpa'
+  - time.*.com
+  - time.*.gov
+  - time.*.edu.cn
+  - time.*.apple.com
+  - time1.*.com
+  - time2.*.com
+  - time3.*.com
+  - time4.*.com
+  - time5.*.com
+  - time6.*.com
+  - time7.*.com
+  - ntp.*.com
+  - ntp1.*.com
+  - ntp2.*.com
+  - ntp3.*.com
+  - ntp4.*.com
+  - ntp5.*.com
+  - ntp6.*.com
+  - ntp7.*.com
+  - '*.time.edu.cn'
+  - '*.ntp.org.cn'
+  - +.pool.ntp.org
+  - time1.cloud.tencent.com
+  - stun.*.*
+  - stun.*.*.*
+  - swscan.apple.com
+  - mesu.apple.com
+  - music.163.com
+  - '*.music.163.com'
+  - '*.126.net'
+  - musicapi.taihe.com
+  - music.taihe.com
+  - songsearch.kugou.com
+  - trackercdn.kugou.com
+  - '*.kuwo.cn'
+  - api-jooxtt.sanook.com
+  - api.joox.com
+  - y.qq.com
+  - '*.y.qq.com'
+  - streamoc.music.tc.qq.com
+  - mobileoc.music.tc.qq.com
+  - isure.stream.qqmusic.qq.com
+  - dl.stream.qqmusic.qq.com
+  - aqqmusic.tc.qq.com
+  - amobile.music.tc.qq.com
+  - localhost.ptlogin2.qq.com
+  - '*.msftconnecttest.com'
+  - '*.msftncsi.com'
+  - '*.xiami.com'
+  - '*.music.migu.cn'
+  - music.migu.cn
+  - +.wotgame.cn
+  - +.wggames.cn
+  - +.wowsgame.cn
+  - +.wargaming.net
+  - '*.*.*.srv.nintendo.net'
+  - '*.*.stun.playstation.net'
+  - xbox.*.*.microsoft.com
+  - '*.*.xboxlive.com'
+  - '*.ipv6.microsoft.com'
+  - teredo.*.*.*
+  - teredo.*.*
+  - speedtest.cros.wr.pvp.net
+  - +.jjvip8.com
+  - www.douyu.com
+  - activityapi.huya.com
+  - activityapi.huya.com.w.cdngslb.com
+  - www.bilibili.com
+  - api.bilibili.com
+  - a.w.bilicdn1.com
 
+proxy-groups:
+- name: AmyTelecom
+  icon: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/qure/color/Proxy.png
+  type: select
+  proxies:
+  - Auto
+  - 🇭🇰 香港 01
+  - 🇭🇰 香港 02
+  - 🇭🇰 香港 03
+  - 🇭🇰 香港 04
+  - 🇭🇰 香港 05
+  - 🇭🇰 香港 06
+  - 🇭🇰 香港 07
+  - 🇭🇰 香港 08
+  - 🇭🇰 香港 09
+  - 🇭🇰 香港 10
+  - 🇭🇰 香港 11
+  - 🇭🇰 香港 12
+  - 🇭🇰 香港 13
+  - 🇭🇰 香港 14
+  - 🇭🇰 香港 15
+  - 🇭🇰 香港 16
+  - 🇭🇰 香港 17
+  - 🇭🇰 香港 18
+  - 🇭🇰 香港 19
+  - 🇭🇰 香港 20
+  - 🇭🇰 香港 21
+  - 🇺🇸 美国 01
+  - 🇺🇸 美国 02
+  - 🇺🇸 美国 03
+  - 🇺🇸 美国 04
+  - 🇺🇸 美国 05
+  - 🇺🇸 美国 06
+  - 🇺🇸 美国 07
+  - 🇺🇸 美国 08
+  - 🇺🇸 美国 09
+  - 🇺🇸 美国 10
+  - 🇺🇸 美国 11
+  - 🇺🇸 美国 12
+  - 🇺🇸 美国 13
+  - 🇯🇵 日本 01
+  - 🇯🇵 日本 02
+  - 🇯🇵 日本 03
+  - 🇯🇵 日本 04
+  - 🇯🇵 日本 05
+  - 🇯🇵 日本 06
+  - 🇯🇵 日本 07
+  - 🇯🇵 日本 08
+  - 🇨🇳 台湾 01
+  - 🇨🇳 台湾 02
+  - 🇨🇳 台湾 03
+  - 🇨🇳 台湾 04
+  - 🇨🇳 台湾 05
+  - 🇨🇳 台湾 06
+  - 🇨🇳 台湾 07
+  - 🇨🇳 台湾 08
+  - 🇨🇳 台湾 09
+  - 🇨🇳 台湾 10
+  - 🇸🇬 新加坡 01
+  - 🇸🇬 新加坡 02
+  - 🇸🇬 新加坡 03
+  - 🇸🇬 新加坡 04
+- name: Auto
+  icon: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/qure/color/Proxy.png
+  type: url-test
+  proxies:
+  - 🇭🇰 香港 01
+  - 🇭🇰 香港 02
+  - 🇭🇰 香港 03
+  - 🇭🇰 香港 04
+  - 🇭🇰 香港 05
+  - 🇭🇰 香港 06
+  - 🇭🇰 香港 07
+  - 🇭🇰 香港 08
+  - 🇭🇰 香港 09
+  - 🇭🇰 香港 10
+  - 🇭🇰 香港 11
+  - 🇭🇰 香港 12
+  - 🇭🇰 香港 13
+  - 🇭🇰 香港 14
+  - 🇭🇰 香港 15
+  - 🇭🇰 香港 16
+  - 🇭🇰 香港 17
+  - 🇭🇰 香港 18
+  - 🇭🇰 香港 19
+  - 🇭🇰 香港 20
+  - 🇭🇰 香港 21
+  url: http://1.1.1.1
+  interval: 30000
 rule-providers:
-    秋风广告规则: { type: http, behavior: domain, url: 'https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main//Filters/AWAvenue-Ads-Rule-Clash.yaml', interval: 86400, path: ./rule_providers/AWAvenue-Ads-Rule-Clash.yaml }
-    ChinaMax: { type: http, behavior: classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_Classical_No_IPv6.yaml', interval: 86400, path: ./ChinaMax_Classical_No_IPv6.yaml }
+  秋风广告规则:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main//Filters/AWAvenue-Ads-Rule-Clash.yaml
+    interval: 86400
+    path: ./rule_providers/AWAvenue-Ads-Rule-Clash.yaml
+  ChinaMax:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_Classical_No_IPv6.yaml
+    interval: 86400
+    path: ./ChinaMax_Classical_No_IPv6.yaml
 rules:
-    - 'RULE-SET,秋风广告规则,REJECT'
-    - 'RULE-SET,ChinaMax,DIRECT'
-    - 'DOMAIN,local.adguard.org,DIRECT'
-    - 'DOMAIN-SUFFIX,local,DIRECT'
-    - 'IP-CIDR,127.0.0.0/8,DIRECT'
-    - 'IP-CIDR,172.16.0.0/12,DIRECT'
-    - 'IP-CIDR,192.168.0.0/16,DIRECT'
-    - 'IP-CIDR,10.0.0.0/8,DIRECT'
-    - 'IP-CIDR,17.0.0.0/8,DIRECT'
-    - 'IP-CIDR,100.64.0.0/10,DIRECT'
-    - 'IP-CIDR,224.0.0.0/4,DIRECT'
-    - 'IP-CIDR,203.0.113.0/24,DIRECT'
-    - 'IP-CIDR,192.0.2.0/24,DIRECT'
-    - 'IP-CIDR6,fe80::/10,DIRECT'
-    - 'GEOIP,CN,DIRECT'
-    - 'GEOIP,LAN,DIRECT'
-    - 'MATCH,proxies'
-
-
+- RULE-SET,秋风广告规则,REJECT
+- RULE-SET,ChinaMax,DIRECT
+- DOMAIN,local.adguard.org,DIRECT
+- DOMAIN-SUFFIX,local,DIRECT
+- IP-CIDR,127.0.0.0/8,DIRECT
+- IP-CIDR,172.16.0.0/12,DIRECT
+- IP-CIDR,192.168.0.0/16,DIRECT
+- IP-CIDR,10.0.0.0/8,DIRECT
+- IP-CIDR,17.0.0.0/8,DIRECT
+- IP-CIDR,100.64.0.0/10,DIRECT
+- IP-CIDR,224.0.0.0/4,DIRECT
+- IP-CIDR,203.0.113.0/24,DIRECT
+- IP-CIDR,192.0.2.0/24,DIRECT
+- IP-CIDR6,fe80::/10,DIRECT
+- GEOIP,CN,DIRECT
+- GEOIP,LAN,DIRECT
+- MATCH,AmyTelecom
