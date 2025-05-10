@@ -217,6 +217,7 @@ rule-providers:
     interval: 86400
     path: ./ChinaMax_Classical_No_IPv6.yaml
 rules:
+- SRC-IP-CIDR,100.64.0.0/16,DIRECT
 - RULE-SET,秋风广告规则,REJECT
 - RULE-SET,ChinaMax,DIRECT
 - DOMAIN,local.adguard.org,DIRECT
