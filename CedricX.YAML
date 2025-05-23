@@ -25,14 +25,14 @@ dns:
   ipv6: false
   listen: 0.0.0.0:1053
   use-hosts: false
-nameserver:
-  - 223.5.5.5        # 阿里DNS主
-  - 218.6.200.139    # 电信DNS备
-default-nameserver:
-  - 223.5.5.5
-fallback:
-  - 119.29.29.29     # 腾讯DNS
-  - 114.114.114.114  # 114DNS，国内常用公共DNS
+  nameserver:
+  - 223.5.5.5 
+  - 218.6.200.139
+  default-nameserver:
+  - 218.6.200.139
+  fallback:
+  - 8.8.8.8
+  - 119.29.29.29
   fake-ip-range: 198.18.0.1/15
   fake-ip-filter:
   - '*.lan'
