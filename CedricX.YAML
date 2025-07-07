@@ -9,7 +9,3 @@ rule-providers:
 rules:
 - SRC-IP-CIDR,100.64.0.0/16,DIRECT
 - RULE-SET,秋风广告规则,REJECT
-- RULE-SET,ChinaMax,DIRECT
-- GEOIP,CN,DIRECT
-- GEOIP,LAN,DIRECT
-- MATCH,AmyTelecom
