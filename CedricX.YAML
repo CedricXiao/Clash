@@ -21,10 +21,7 @@ dns:
   listen: 0.0.0.0:1053
   use-hosts: false
   default-nameserver:
-    - tls://dns.alidns.com:853
-    - tls://dot.pub:853
-    - https://dns.alidns.com:443/dns-query
-    - https://doh.pub:443/dns-query
+    - 223.5.5.5
   nameserver:
     - tls://dns.alidns.com:853
     - tls://dot.pub:853
