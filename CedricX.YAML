@@ -21,17 +21,15 @@ dns:
   listen: 0.0.0.0:1053
   use-hosts: false
   default-nameserver:
-    - 119.28.28.28
-    - 119.29.29.29
-    - 223.5.5.5
-    - 223.6.6.6
-  nameserver:
-    - 119.29.29.29
-    - 223.5.5.5
-    - tls://dot.pub:853
     - tls://dns.alidns.com:853
-    - https://doh.pub:443/dns-query
+    - tls://dot.pub:853
     - https://dns.alidns.com:443/dns-query
+    - https://doh.pub:443/dns-query
+  nameserver:
+    - tls://dns.alidns.com:853
+    - tls://dot.pub:853
+    - https://dns.alidns.com:443/dns-query
+    - https://doh.pub:443/dns-query
   fake-ip-range: 198.18.0.1/15
   fake-ip-filter:
     - "*.winshare.com.cn"
