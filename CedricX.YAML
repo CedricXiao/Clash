@@ -29,8 +29,6 @@ dns:
     - https://doh.pub:443/dns-query
   fake-ip-range: 198.18.0.1/15
   fake-ip-filter:
-    - "*.winshare.com.cn"
-    - "*.winxuan.com"  
     - "*.lan"
     - "*.localdomain"
     - "*.example"
@@ -62,6 +60,9 @@ dns:
     - "*.ntp.org.cn"
     - +.pool.ntp.org
     - time1.cloud.tencent.com
+    - "*.winshare.com.cn"
+    - "*.winxuan.com"  
+    - "*.mytorch.cn"  
     - stun.*.*
     - stun.*.*.*
     - swscan.apple.com
