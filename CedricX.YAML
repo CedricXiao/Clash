@@ -4,10 +4,11 @@ allow-lan: true
 mode: Rule
 log-level: info
 external-controller: :9090
+unified-delay: true
 sniffer:
   sniff:
-    TLS: {ports: [1-65535], override-destination: true}
-    HTTP: {ports: [1-65535], override-destination: true}
+    TLS: { ports: [1-65535], override-destination: true }
+    HTTP: { ports: [1-65535], override-destination: true }
   enable: true
   skip-domain:
     - Mijia Cloud
@@ -29,6 +30,9 @@ dns:
     - https://doh.pub:443/dns-query
   fake-ip-range: 198.18.0.1/15
   fake-ip-filter:
+    - "*.winshare.com.cn"
+    - "*.winxuan.com"
+    - "*.mytorch.cn"
     - "*.lan"
     - "*.localdomain"
     - "*.example"
@@ -60,9 +64,6 @@ dns:
     - "*.ntp.org.cn"
     - +.pool.ntp.org
     - time1.cloud.tencent.com
-    - "*.winshare.com.cn"
-    - "*.winxuan.com"  
-    - "*.mytorch.cn"  
     - stun.*.*
     - stun.*.*.*
     - swscan.apple.com
@@ -110,93 +111,98 @@ dns:
     - www.bilibili.com
     - api.bilibili.com
     - a.w.bilicdn1.com
-    - "*.aliyun.com"
-    - "*.alibaba.com"
-    - "*.taobao.com"
-    - "*.tmall.com"
-    - "*.jd.com"
-    - "*.bilibili.com"
-    - "*.youku.com"
-    - "*.iqiyi.com"
-    - "*.kuaishou.com"
-    - "*.douyin.com"
-    - "*.meituan.com"
-    - "*.dianping.com"
+proxies:
+
+
+
 
 
 proxy-groups:
-- name: AmyTelecom
-  icon: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/qure/color/Proxy.png
-  type: select
-  proxies:
-  - Auto
-  - 🇭🇰 香港 01
-  - 🇭🇰 香港 02
-  - 🇭🇰 香港 03
-  - 🇭🇰 香港 04
-  - 🇭🇰 香港 05
-  - 🇭🇰 香港 06
-  - 🇭🇰 香港 07
-  - 🇭🇰 香港 08
-  - 🇭🇰 香港 09
-  - 🇭🇰 香港 10
-  - 🇭🇰 香港 11
-  - 🇭🇰 香港 12
-  - 🇭🇰 香港 13
-  - 🇭🇰 香港 14
-  - 🇭🇰 香港 15
-  - 🇭🇰 香港 16
-  - 🇭🇰 香港 17
-  - 🇭🇰 香港 18
-  - 🇭🇰 香港 19
-  - 🇭🇰 香港 20
-  - 🇭🇰 香港 21
-  - 🇺🇸 美国 01
-  - 🇺🇸 美国 02
-  - 🇺🇸 美国 03
-  - 🇺🇸 美国 04
-  - 🇺🇸 美国 05
-  - 🇺🇸 美国 06
-  - 🇺🇸 美国 07
-  - 🇺🇸 美国 08
-  - 🇺🇸 美国 09
-  - 🇺🇸 美国 10
-  - 🇺🇸 美国 11
-  - 🇺🇸 美国 12
-  - 🇺🇸 美国 13
-  - 🇯🇵 日本 01
-  - 🇯🇵 日本 02
-  - 🇯🇵 日本 03
-  - 🇯🇵 日本 04
-  - 🇯🇵 日本 05
-  - 🇯🇵 日本 06
-  - 🇯🇵 日本 07
-  - 🇯🇵 日本 08
-  - 🇨🇳 台湾 01
-  - 🇨🇳 台湾 02
-  - 🇨🇳 台湾 03
-  - 🇨🇳 台湾 04
-  - 🇨🇳 台湾 05
-  - 🇨🇳 台湾 06
-  - 🇨🇳 台湾 07
-  - 🇨🇳 台湾 08
-  - 🇨🇳 台湾 09
-  - 🇨🇳 台湾 10
-  - 🇸🇬 新加坡 01
-  - 🇸🇬 新加坡 02
-  - 🇸🇬 新加坡 03
-  - 🇸🇬 新加坡 04
-- name: Auto
-  icon: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/qure/color/Proxy.png
-  type: url-test
-  proxies:
-  - 🇭🇰 香港 14
-  - 🇭🇰 香港 15
-  - 🇭🇰 香港 16
-  - 🇭🇰 香港 17
-  url: http://1.1.1.1
-  interval: 30000
-
+  - name: AmyTelecom
+    icon: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/qure/color/Proxy.png
+    type: select
+    proxies:
+      - Auto
+      - 🇭🇰 香港 01
+      - 🇭🇰 香港 02
+      - 🇭🇰 香港 03
+      - 🇭🇰 香港 04
+      - 🇭🇰 香港 05
+      - 🇭🇰 香港 06
+      - 🇭🇰 香港 07
+      - 🇭🇰 香港 08
+      - 🇭🇰 香港 09
+      - 🇭🇰 香港 10
+      - 🇭🇰 香港 11
+      - 🇭🇰 香港 12
+      - 🇭🇰 香港 13
+      - 🇭🇰 香港 14
+      - 🇭🇰 香港 15
+      - 🇭🇰 香港 16
+      - 🇭🇰 香港 17
+      - 🇭🇰 香港 18
+      - 🇭🇰 香港 19
+      - 🇭🇰 香港 20
+      - 🇭🇰 香港 21
+      - 🇺🇸 美国 01
+      - 🇺🇸 美国 02
+      - 🇺🇸 美国 03
+      - 🇺🇸 美国 04
+      - 🇺🇸 美国 05
+      - 🇺🇸 美国 06
+      - 🇺🇸 美国 07
+      - 🇺🇸 美国 08
+      - 🇺🇸 美国 09
+      - 🇺🇸 美国 10
+      - 🇺🇸 美国 11
+      - 🇺🇸 美国 12
+      - 🇺🇸 美国 13
+      - 🇯🇵 日本 01
+      - 🇯🇵 日本 02
+      - 🇯🇵 日本 03
+      - 🇯🇵 日本 04
+      - 🇯🇵 日本 05
+      - 🇯🇵 日本 06
+      - 🇯🇵 日本 07
+      - 🇯🇵 日本 08
+      - 🇨🇳 台湾 01
+      - 🇨🇳 台湾 02
+      - 🇨🇳 台湾 03
+      - 🇨🇳 台湾 04
+      - 🇨🇳 台湾 05
+      - 🇨🇳 台湾 06
+      - 🇨🇳 台湾 07
+      - 🇨🇳 台湾 08
+      - 🇨🇳 台湾 09
+      - 🇨🇳 台湾 10
+      - 🇸🇬 新加坡 01
+      - 🇸🇬 新加坡 02
+      - 🇸🇬 新加坡 03
+      - 🇸🇬 新加坡 04
+  - name: Auto
+    icon: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/qure/color/Proxy.png
+    type: url-test
+    proxies:
+      - 🇭🇰 香港 14
+      - 🇭🇰 香港 15
+      - 🇭🇰 香港 16
+      - 🇭🇰 香港 17
+      - 🇭🇰 Hong Kong丨01
+      - 🇭🇰 Hong Kong丨02
+      - 🇭🇰 Hong Kong丨03
+      - 🇭🇰 Hong Kong丨04
+      - 🇭🇰 Hong Kong丨05
+      - 🇭🇰 Hong Kong丨06
+      - 🇭🇰 Hong Kong丨07
+      - 🇭🇰 Hong Kong丨08
+      - 🇭🇰 Hong Kong丨09
+    url: http://1.1.1.1
+    interval: 30000
+  - name: ProxySelect
+    type: select
+    proxies:
+      - DIRECT
+      - AmyTelecom
 rule-providers:
   reject:
     type: http
@@ -279,7 +285,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
-    path: http://192.168.100.1/cgi-bin/luci/admin/services/openclash/client./ruleset/lancidr.yaml
+    path: ./ruleset/lancidr.yaml
     interval: 86400
 
   applications:
@@ -305,5 +311,4 @@ rules:
   - RULE-SET,telegramcidr,AmyTelecom
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT
-  - MATCH,DIRECT
-
+  - MATCH,ProxySelect
