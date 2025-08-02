@@ -223,10 +223,21 @@ rule-providers:
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
     path: ./ruleset/gfw.yaml
     interval: 86400
+  tld-not-cn:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
+    path: ./ruleset/tld-not-cn.yaml
+    interval: 86400
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+    path: ./ruleset/telegramcidr.yaml
+    interval: 86400
 rules:
 - SRC-IP-CIDR,100.64.0.0/16,DIRECT
 - RULE-SET,秋风广告规则,REJECT
-- RULE-SET,ChinaMax,DIRECT
 - DOMAIN,local.adguard.org,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
 - IP-CIDR,127.0.0.0/8,DIRECT
@@ -238,7 +249,10 @@ rules:
 - IP-CIDR,224.0.0.0/4,DIRECT
 - IP-CIDR,203.0.113.0/24,DIRECT
 - IP-CIDR,192.0.2.0/24,DIRECT
+- RULE-SET,telegramcidr,AmyTelecom
+- RULE-SET,ChinaMax,DIRECT
+- RULE-SET,tld-not-cn,AmyTelecom
+- RULE-SET,gfw,AmyTelecom
 - GEOIP,CN,DIRECT
 - GEOIP,LAN,DIRECT
-- RULE-SET,gfw,AmyTelecom
 - MATCH,Proxy Select
