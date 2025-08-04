@@ -200,7 +200,7 @@ proxy-groups:
   url: http://1.1.1.1
   interval: 30000
 - name: Proxy Select
-  type: select
+  type: PS5
   proxies:
   - DIRECT
   - AmyTelecom
@@ -255,4 +255,5 @@ rules:
 - RULE-SET,gfw,AmyTelecom
 - GEOIP,CN,DIRECT
 - GEOIP,LAN,DIRECT
-- MATCH,Proxy Select
+- DOMAIN,amytele.com,AmyTelecom
+- MATCH,PS5
