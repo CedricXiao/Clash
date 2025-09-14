@@ -4,10 +4,16 @@ allow-lan: true
 mode: Rule
 log-level: info
 external-controller: :9090
+unified-delay: true
 sniffer:
   sniff:
-    TLS: {ports: [1-65535], override-destination: true}
-    HTTP: {ports: [1-65535], override-destination: true}
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
   enable: true
   skip-domain:
     - Mijia Cloud
@@ -22,7 +28,6 @@ dns:
   use-hosts: false
   default-nameserver:
     - 223.6.6.6
-    - 223.5.5.5
   nameserver:
     - tls://dns.alidns.com:853
     - tls://dot.pub:853
@@ -32,6 +37,7 @@ dns:
   fake-ip-filter:
     - "*.winshare.com.cn"
     - "*.winxuan.com"  
+    - "*.mytorch.cn"  
     - "*.lan"
     - "*.localdomain"
     - "*.example"
@@ -110,18 +116,6 @@ dns:
     - www.bilibili.com
     - api.bilibili.com
     - a.w.bilicdn1.com
-    - "*.aliyun.com"
-    - "*.alibaba.com"
-    - "*.taobao.com"
-    - "*.tmall.com"
-    - "*.jd.com"
-    - "*.bilibili.com"
-    - "*.youku.com"
-    - "*.iqiyi.com"
-    - "*.kuaishou.com"
-    - "*.douyin.com"
-    - "*.meituan.com"
-    - "*.dianping.com"
 
 
 proxy-groups:
@@ -190,14 +184,16 @@ proxy-groups:
   icon: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/qure/color/Proxy.png
   type: url-test
   proxies:
+  - 🇭🇰 香港 12
+  - 🇭🇰 香港 13
   - 🇭🇰 香港 14
   - 🇭🇰 香港 15
   - 🇭🇰 香港 16
   - 🇭🇰 香港 17
   url: http://1.1.1.1
   interval: 30000
-- name: Proxy Select
-  type: PS5
+- name: PS5游戏加速
+  type: select
   proxies:
   - DIRECT
   - AmyTelecom
@@ -220,12 +216,6 @@ rule-providers:
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
     path: ./ruleset/gfw.yaml
     interval: 86400
-  tld-not-cn:
-    type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
-    path: ./ruleset/tld-not-cn.yaml
-    interval: 86400
   telegramcidr:
     type: http
     behavior: ipcidr
@@ -233,8 +223,8 @@ rule-providers:
     path: ./ruleset/telegramcidr.yaml
     interval: 86400
 rules:
-- SRC-IP-CIDR,100.64.0.0/16,DIRECT
 - RULE-SET,秋风广告规则,REJECT
+- SRC-IP-CIDR,100.64.0.0/16,DIRECT
 - DOMAIN,local.adguard.org,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
 - IP-CIDR,127.0.0.0/8,DIRECT
@@ -246,11 +236,10 @@ rules:
 - IP-CIDR,224.0.0.0/4,DIRECT
 - IP-CIDR,203.0.113.0/24,DIRECT
 - IP-CIDR,192.0.2.0/24,DIRECT
-- RULE-SET,telegramcidr,AmyTelecom
 - RULE-SET,ChinaMax,DIRECT
-- RULE-SET,tld-not-cn,AmyTelecom
+- RULE-SET,telegramcidr,AmyTelecom
 - RULE-SET,gfw,AmyTelecom
 - GEOIP,CN,DIRECT
 - GEOIP,LAN,DIRECT
-- DOMAIN,amytele.com,AmyTelecom
-- MATCH,PS5
+- DOMAIN-SUFFIX,amytele.com,AmyTelecom
+- MATCH,PS5游戏加速
