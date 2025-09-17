@@ -24,19 +24,22 @@ dns:
   fallback:
     - https://8.8.8.8/dns-query
     - https://1.0.0.1/dns-query
-  fake-ip-filter:
-    - "*.lan"
-    - "*.localdomain"
-    - "*.example"
-    - "*.invalid"
-    - "*.test"
-    - "localhost"
-    - "*.ntp.org"
-    - "time.*.com"
-    - "*.time.edu.cn"
-    - "*.winshare.com.cn"
-    - "*.winxuan.com"  
-    - "*.mytorch.cn"  
+fake-ip-filter:
+  # 局域网/系统服务
+  - '*.lan'
+  - '*.localdomain'
+  - '*.localhost'
+  - '*.home.arpa'
+  - '*.test'
+  - '*.invalid'
+  - 'ntp.*.com'
+  - 'pool.ntp.org'
+  - 'time.*.com'
+  - 'connectivitycheck.gstatic.com'
+  # 其他指定站点
+  - "*.winshare.com.cn"
+  - "*.winxuan.com"
+  - "*.mytorch.cn"  
 
 
 proxy-groups:
