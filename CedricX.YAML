@@ -2,7 +2,6 @@
 port: 7890            # HTTP 代理端口
 socks-port: 7891       # SOCKS5 代理端口
 allow-lan: true        # 允许局域网访问
-bind-address: "*"      # 监听所有网卡
 mode: Rule              # 规则模式（Rule/Global/Direct）
 log-level: error         # 日志级别
 external-controller: :9090  # 控制面板 API 端口
@@ -13,17 +12,16 @@ dns:
   enable: true
   listen: :1053
   ipv6: false
-  enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   default-nameserver:
     - 223.6.6.6
     - 223.5.5.5
   nameserver:
-    - https://8.8.4.4/dns-query
-    - https://1.1.1.1/dns-query
+    - 8.8.4.4
+    - 1.1.1.1
   fallback:
-    - https://8.8.8.8/dns-query
-    - https://1.0.0.1/dns-query
+    - 8.8.8.8
+    - 1.0.0.1
 fake-ip-filter:
   # 局域网/系统服务
   - '*.lan'
