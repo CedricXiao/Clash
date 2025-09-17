@@ -146,7 +146,6 @@ rule-providers:
 rules:
 - RULE-SET,telegramcidr,AmyTelecom
 - RULE-SET,gfw,AmyTelecom
-
 - SRC-IP-CIDR,100.64.0.0/16,DIRECT
 - DOMAIN,local.adguard.org,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
@@ -159,8 +158,8 @@ rules:
 - IP-CIDR,224.0.0.0/4,DIRECT
 - IP-CIDR,203.0.113.0/24,DIRECT
 - IP-CIDR,192.0.2.0/24,DIRECT
-- RULE-SET,ChinaMax,DIRECT
 - RULE-SET,秋风广告规则,REJECT
+- RULE-SET,ChinaMax,DIRECT
 - GEOIP,CN,DIRECT
 - GEOIP,LAN,DIRECT
 - DOMAIN-SUFFIX,amytele.com,AmyTelecom
