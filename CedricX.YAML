@@ -114,6 +114,7 @@ proxy-groups:
   icon: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/qure/color/Proxy.png
   type: select
   proxies:
+      - Auto
       - 🇭🇰 香港 01
       - 🇭🇰 香港 02
       - 🇭🇰 香港 03
