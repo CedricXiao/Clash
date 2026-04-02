@@ -19,9 +19,10 @@ dns:
     - 8.8.4.4
     - 1.0.0.1
   nameserver:
-    - https://wrecking7857.com:44443/dns-query/1f6bbe30-bb4d-4d4f-92a1-6078c3d59adf
-    - https://carrousel6917.com:44443/dns-query/1f6bbe30-bb4d-4d4f-92a1-6078c3d59adf
-    - https://simmering3378.com:443/dns-query/1f6bbe30-bb4d-4d4f-92a1-6078c3d59adf
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+    - https://dns.google/dns-query
+    - https://cloudflare-dns.com/dns-query
 fake-ip-filter:
   # 局域网/系统服务
     - "*.lan"
@@ -179,8 +180,8 @@ proxy-groups:
       - 🇭🇰 香港 15
       - 🇭🇰 香港 16
       - 🇭🇰 香港 17
-  url: http://1.1.1.1
-  interval: 30000
+  url: http://www.gstatic.com/generate_204
+  interval: 3000000
 - name: PS5游戏加速
   type: select
   proxies:
@@ -215,6 +216,7 @@ rules:
 - RULE-SET,telegramcidr,AmyTelecom
 - RULE-SET,gfw,AmyTelecom
 - DOMAIN-KEYWORD,amytele,AmyTelecom
+- DOMAIN-KEYWORD,1lou,AmyTelecom
 - SRC-IP-CIDR,100.64.0.0/16,DIRECT
 - DOMAIN,local.adguard.org,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
