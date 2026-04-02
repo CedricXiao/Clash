@@ -185,8 +185,10 @@ proxy-groups:
 - name: PS5游戏加速
   type: select
   proxies:
-  - DIRECT
+  - Auto
   - AmyTelecom
+  - DIRECT
+
 rule-providers:
   秋风广告规则:
     type: http
